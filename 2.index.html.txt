@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lettera n.2 – La Prima Chiamata - Le Lettere di Antonino</title>
+  <style>
+    /* TEMA SPIRITUALE - COLORI PRINCIPALI */
+    :root {
+      --colore-notte: #1a1a2e;
+      --colore-crepuscolo: #16213e;
+      --colore-oro: #d4af37;
+      --colore-oro-trasparente: rgba(212, 175, 55, 0.1);
+      --colore-testo: #f1f1f1;
+      --colore-testo-secondario: #b8b8b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--colore-notte), var(--colore-crepuscolo));
+      color: var(--colore-testo);
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* HEADER EROICO */
+    .hero {
+      background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.9)), 
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a1a2e" width="1200" height="800"/><circle fill="%23d4af37" opacity="0.05" cx="200" cy="200" r="100"/><circle fill="%23d4af37" opacity="0.03" cx="800" cy="400" r="150"/><circle fill="%23d4af37" opacity="0.07" cx="1000" cy="150" r="80"/></svg>');
+      min-height: 30vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--colore-oro);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+
+    .hero .sottotitolo {
+      font-size: 1.2rem;
+      color: var(--colore-testo-secondario);
+      font-style: italic;
+    }
+
+    /* NAVIGATION */
+    .navbar {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 1rem;
+    }
+
+    .navbar li {
+      margin: 0 1.5rem;
+    }
+
+    .navbar a {
+      color: var(--colore-testo);
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .navbar a:hover {
+      color: var(--colore-oro);
+    }
+
+    .navbar a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: var(--colore-oro);
+      transition: width 0.3s ease;
+    }
+
+    .navbar a:hover::after {
+      width: 100%;
+    }
+
+    /* CONTENUTO LETTERA */
+    .contenuto-lettera {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .intestazione-lettera {
+      text-align: center;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      padding-bottom: 2rem;
+    }
+
+    .intestazione-lettera h1 {
+      font-size: 2.2rem;
+      color: var(--colore-oro);
+      margin-bottom: 1rem;
+    }
+
+    .data-lettera {
+      color: var(--colore-testo-secondario);
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    .testo-lettera {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+
+    .testo-lettera p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .firma-lettera {
+      text-align: right;
+      font-style: italic;
+      color: var(--colore-oro);
+      margin-top: 3rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      padding-top: 1rem;
+    }
+
+    /* BOTTONI */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: transparent;
+      color: var(--colore-oro);
+      border: 2px solid var(--colore-oro);
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background: var(--colore-oro);
+      color: var(--colore-notte);
+      transform: translateY(-2px);
+    }
+
+    .navigazione-lettere {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(0, 0, 0, 0.5);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+      color: var(--colore-testo-secondario);
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .contenuto-lettera {
+        padding: 0 1rem;
+        margin: 2rem auto;
+      }
+      
+      .navigazione-lettere {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      
+      .navbar ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Le Lettere di Antonino</h1>
+      <p class="sottotitolo">di Pradd Mill</p>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#lettere">Altre Lettere</a></li>
+      <li><a href="index.html#capitoli">I Capitoli</a></li>
+      <li><a href="index.html#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENUTO LETTERA -->
+  <main class="contenuto-lettera">
+    <div class="intestazione-lettera">
+      <h1>Lettera n.2 – La Prima Chiamata</h1>
+      <div class="data-lettera">29 luglio 1975</div>
+    </div>
+
+    <div class="testo-lettera">
+      <!-- INIZIO CONTENUTO -->
+      <p>Non ho scelto io di venire al mondo. Qualcuno, da qualche parte, ha pronunciato il mio nome e da quel momento la mia storia ha avuto inizio.</p>
+      
+      <p>È come se avessero detto: "È il tuo turno". E così sono sceso giù, dentro questa vita che a volte mi è sembrata troppo stretta, altre volte infinita.</p>
+      
+      <p>Sono nato il 29 luglio 1975. Ogni volta che guardo quel numero mi sembra di sentire un codice, una formula che ancora non ho decifrato.</p>
+      
+      <p>Forse è un segno, o forse solo una data. Ma dentro di me sento che nulla è per caso.</p>
+
+      <p>La prima chiamata è quella che non senti con le orecchie, ma con l'anima. È la chiamata della vita stessa, che ti dice: "Vai, vivi, impara".</p>
+      
+      <p>E io sono andato, spesso inciampando, spesso senza capire dove mi trovassi.</p>
+
+      <p>Crescendo ho capito che il mondo non è una casa sicura. Ci sono scorpioni e serpenti che ti osservano, e non sempre sono animali.</p>
+      
+      <p>Sono persone, situazioni, abitudini, pensieri. Il veleno non lo senti subito: ti accarezza piano, ti addormenta, ti illude.</p>
+      
+      <p>Il morso del peccato, quello sì che è subdolo. Ti dà piacere per un momento e poi ti lascia vuoto, senza forza.</p>
+      
+      <p>È come un cioccolatino che sembra dolce ma dentro ha l'amaro del rimorso.</p>
+
+      <p>A volte penso che la vita sia una grande prova di equilibrio. Devi camminare tra le ombre senza lasciarti trascinare dentro.</p>
+      
+      <p>E quando arrivi a sera, se sei ancora lucido, se sei ancora sobrio dentro, puoi dire: "Anche oggi sono tornato a casa sano e salvo".</p>
+      
+      <p>Perché non basta sopravvivere. Bisogna rimanere vivi dentro.</p>
+
+      <p>La prima chiamata, allora, non è solo nascere. È restare fedeli a quella scintilla che ci ha fatti venire qui.</p>
+      
+      <p>È non dimenticare la strada del ritorno.</p>
+      
+      <p>Perché un giorno, quando il corpo si spegnerà, dovremo tornare a Casa.</p>
+      
+      <p>E sarà importante ricordare da dove siamo partiti.</p>
+      <!-- FINE CONTENUTO -->
+
+      <div class="firma-lettera">
+        <p>Con affetto,<br>Antonino</p>
+      </div>
+    </div>
+
+    <div class="navigazione-lettere">
+      <a href="lettera-1.html" class="btn">← Lettera Precedente</a>
+      <a href="index.html" class="btn">Torna alla Home</a>
+      <a href="lettera-3.html" class="btn">Lettera Successiva →</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Le Lettere di Antonino – di Pradd Mill</p>
+    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+      "Ogni parola è un piccolo ritorno verso casa"
+    </p>
+  </footer>
+
+</body>
+</html>
